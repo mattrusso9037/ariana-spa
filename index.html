@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariana Brennan - Product Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Blush Pink & Muted Green -->
+    <!-- Application Structure Plan: A single-page application with a professional, asymmetrical layout. The structure follows a standard portfolio flow: Hero, Projects, About, Contact. Key interactions include a modal for project details, which enhances usability by keeping users in context. -->
+    <!-- Visualization & Content Choices: 
+        - Hero (Inform): Two-column layout with a large placeholder for a professional photo and a strong value proposition in the text.
+        - Projects (Organize/Inform): A vertical list of featured projects. Each project has a "View Project" button that triggers a JS-powered modal, revealing a detailed case study.
+        - About (Inform): A concise, single-paragraph summary to give a quick insight into the designer's background.
+        - Contact (Action): A clean, standard contact form to facilitate communication. Social links are included for alternative contact methods.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEF7F5;
+            color: #3D1D16;
+        }
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #D18A9B;
+        }
+        .social-link {
+             transition: color 0.3s;
+        }
+        .social-link:hover {
+            color: #D18A9B;
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-6 max-w-6xl">
+        <!-- Header & Navigation -->
+        <header id="header" class="py-8">
+            <nav class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold">Ariana Brennan</a>
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="/seamus-ryan-resume.pdf" target="_blank" rel="noopener noreferrer" class="border border-[#3D1D16] px-4 py-2 rounded-md hover:bg-[#3D1D16] hover:text-white transition-colors">Resume</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-2xl">☰</button>
+            </nav>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 bg-[#FEF7F5]">
+                <a href="#projects" class="block py-2 text-center nav-link">Projects</a>
+                <a href="#about" class="block py-2 text-center nav-link">About</a>
+                <a href="#contact" class="block py-2 text-center nav-link">Contact</a>
+                <a href="/seamus-ryan-resume.pdf" target="_blank" rel="noopener noreferrer" class="block py-2 text-center nav-link">Resume</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Home Section -->
+            <section id="home" class="py-16 md:py-24">
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-2">
+                        <img src="https://placehold.co/600x700/F0F0F0/3D1D16?text=Ariana" alt="Portrait of Ariana Brennan" class="rounded-lg w-full">
+                    </div>
+                    <div class="md:col-span-3">
+                        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Hi, I'm Ariana, a product designer focused on crafting intuitive and impactful digital experiences.</h1>
+                        <p class="mb-8 text-lg">With a background blending psychology and a passion for clean, user-centered design, I focus on creating products that are both easy to use and engaging.</p>
+                        <a href="#projects" class="bg-[#D18A9B] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#c3798e] transition-colors">View Projects</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-16 md:py-24 border-t border-[#EAE0DD]">
+                <h2 class="text-3xl font-bold mb-12">Featured Projects</h2>
+                <div id="project-list" class="space-y-16">
+                    <!-- Project items will be injected here -->
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-16 md:py-24 border-t border-[#EAE0DD]">
+                <div class="max-w-3xl">
+                    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+                    <p class="text-lg">With several years of freelance and agency experience, I specialize in UI/UX design for web and mobile apps. I have a strong focus on user research and iterative prototyping to ensure the products I design solve real-world problems and help businesses accomplish meaningful goals. I'm passionate about creating user-first experiences that are both beautiful and functional.</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-16 md:py-24 border-t border-[#EAE0DD]">
+                <h2 class="text-3xl font-bold mb-10">Contact</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                     <div>
+                        <p class="text-lg mb-6">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+                        <!-- HubSpot Form Embed Code -->
+                        <div id="hubspot-form-container">
+                             <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                             <script>
+                               hbspt.forms.create({
+                                 region: "na1",
+                                 portalId: "48399589",
+                                 formId: "a36bb97c-5b9f-40f9-9f00-3f6f2061ad33"
+                               });
+                             </script>
+                        </div>
+                     </div>
+                     <div class="flex flex-col justify-between">
+                         <div>
+                            <h3 class="font-bold text-lg mb-2">Email</h3>
+                            <a href="mailto:abrennan418@gmail.com" class="nav-link">abrennan418@gmail.com</a>
+                         </div>
+                         <div>
+                            <h3 class="font-bold text-lg mb-4">Connect on Social Media</h3>
+                             <div id="contact-links" class="flex space-x-6 text-2xl">
+                                 <!-- Social links will be injected here -->
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center py-10 border-t border-[#EAE0DD]">
+            <p class="text-sm">&copy; 2023 Ariana Brennan. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
+        <div id="modal-content" class="modal-content bg-[#FEF7F5] rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-8 md:p-12 transform scale-95">
+            <button id="modal-close" class="absolute top-4 right-4 text-4xl font-light hover:text-[#D18A9B] transition-colors">&times;</button>
+            <h3 id="modal-title" class="text-3xl font-bold mb-2"></h3>
+            <p id="modal-role" class="text-lg font-semibold text-[#D18A9B] mb-8"></p>
+            
+            <div id="modal-body" class="space-y-6">
+                <!-- Modal content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectData = [
+                {
+                    id: 'website-redesign',
+                    title: 'Website Redesign',
+                    summary: 'A complete overhaul of a SaaS landing page to improve conversion rates. My role involved UX research, wireframing, and high-fidelity mockups.',
+                    image: 'https://placehold.co/600x400/D4C9C3/3D1D16?text=Website+UI',
+                    role: 'UX/UI Designer',
+                    details: [
+                        { title: 'The Problem', content: "The existing SaaS landing page was underperforming, with low conversion rates and high bounce rates. User feedback indicated the page was confusing and didn't clearly communicate the product's value." },
+                        { title: 'The Solution', content: 'I redesigned the landing page from the ground up, focusing on a clear value proposition, streamlined content hierarchy, and compelling calls-to-action.' },
+                        { title: 'The Process', content: 'My process included competitor analysis, user journey mapping, creating wireframes and interactive prototypes in Figma, and conducting A/B tests on the final designs.' },
+                        { title: 'Takeaways', content: 'This project reinforced the impact of a user-centered approach on business metrics. The redesigned page led to a significant increase in conversions and user engagement.' }
+                    ]
+                },
+                {
+                    id: 'nonprofit-website',
+                    title: 'Nonprofit Website Design',
+                    summary: 'Creating a website for a new nonprofit to help them build their community, highlight their mission, and receive donations.',
+                    image: 'https://placehold.co/600x400/C5D1D3/3D1D16?text=Nonprofit+UI',
+                    role: 'UX/UI Designer',
+                    details: [
+                         { title: 'The Problem', content: "The new nonprofit needed a digital presence to establish credibility, communicate their mission effectively, and provide an easy way for supporters to donate." },
+                         { title: 'The Solution', content: "I designed a warm and inviting website that tells the organization's story, showcases their impact through visuals and testimonials, and features a seamless donation flow." },
+                         { title: 'The Process', content: "I worked closely with the nonprofit's stakeholders to understand their goals. The process involved creating an information architecture, designing wireframes, and developing a visual style guide that reflected their brand." },
+                         { title: 'Takeaways', content: "Designing for a cause was incredibly rewarding. The project highlighted the importance of storytelling in design and creating an emotional connection with the user." }
+                    ]
+                },
+            ];
+            
+            const socialLinks = [
+                { name: 'Dribbble', url: 'https://dribbble.com/ari_b2183', icon: '🏀' },
+                { name: 'Behance', url: 'https://www.behance.net/arianabrennan', icon: '🎨' },
+                { name: 'LinkedIn', url: 'https://www.linkedin.com/in/abrennan6115120/', icon: '🔗' },
+            ];
+
+            const projectList = document.getElementById('project-list');
+            projectData.forEach((project, index) => {
+                const projectEl = document.createElement('div');
+                projectEl.className = 'grid md:grid-cols-2 gap-8 items-center';
+                
+                const textContent = `
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">${project.title}</h3>
+                        <p class="mb-6">${project.summary}</p>
+                        <a href="#" data-project-id="${project.id}" class="view-project-btn font-semibold border-b-2 border-[#D18A9B] pb-1 nav-link">View Project</a>
+                    </div>
+                `;
+                
+                const imageContent = `
+                    <div class="bg-gray-200 rounded-lg">
+                       <img src="${project.image}" alt="${project.title}" class="rounded-lg w-full">
+                    </div>
+                `;
+                
+                if (index % 2 === 0) {
+                     projectEl.innerHTML = textContent + imageContent;
+                } else {
+                     projectEl.innerHTML = imageContent + textContent;
+                     projectEl.querySelector('div:first-child').classList.add('md:order-last');
+                }
+                
+                projectList.appendChild(projectEl);
+            });
+
+            const contactLinksContainer = document.getElementById('contact-links');
+            socialLinks.forEach(link => {
+                const anchor = document.createElement('a');
+                anchor.href = link.url;
+                anchor.title = link.name;
+                anchor.target = '_blank';
+                anchor.rel = 'noopener noreferrer';
+                anchor.className = 'social-link';
+                anchor.textContent = link.icon;
+                contactLinksContainer.appendChild(anchor);
+            });
+
+            // Modal Logic
+            const modal = document.getElementById('project-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalClose = document.getElementById('modal-close');
+            const modalTitle = document.getElementById('modal-title');
+            const modalRole = document.getElementById('modal-role');
+            const modalBody = document.getElementById('modal-body');
+
+            const openModal = (project) => {
+                modalTitle.textContent = project.title;
+                modalRole.textContent = project.role;
+                modalBody.innerHTML = project.details.map(detail => `
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">${detail.title}</h4>
+                        <p>${detail.content}</p>
+                    </div>
+                `).join('');
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-95');
+            };
+
+            const closeModal = () => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modalContent.classList.add('scale-95');
+            };
+
+            projectList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('view-project-btn')) {
+                    e.preventDefault();
+                    const projectId = e.target.dataset.projectId;
+                    const project = projectData.find(p => p.id === projectId);
+                    if (project) {
+                        openModal(project);
+                    }
+                }
+            });
+            
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape") {
+                    closeModal();
+                }
+            });
+
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('a[href^="#"], .view-project-btn').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (mobileMenu.contains(e.target) || anchor.closest('#mobile-menu')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
